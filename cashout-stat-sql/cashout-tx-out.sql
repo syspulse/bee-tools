@@ -1,0 +1,1 @@
+select tx.id,tx.block_number,tx.timestamp,tx.from,tx.to,tx.input from tx where lower(tx.to) = 'CONTRACT_ADDRESS'; -- limit 10;

@@ -1,0 +1,1 @@
+select tx.id,tx.block_number,tx.timestamp,tx.from,tx.to,tx.input from tx where lower(tx.from) = 'ETH_ADDRESS' and tx.input ~ '^0x0d5f2659'; -- limit 10;
