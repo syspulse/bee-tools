@@ -12,6 +12,13 @@ TMP_TOTAL_GAS="/tmp/tx-gas-stat-gas.tmp"
 >&2 echo "History: $HISTORY blocks"
 >&2 echo "ETH_RPC_URL: $ETH_RPC_URL"
 
+curl -s -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}' -H "Content-Type: application/json" $ETH_RPC_URL
+c=$?
+if [ "$c" != "0" ]; then
+   >&2 echo "ERR: geth access failed: code=$c"
+   exit $c
+fi
+
 last=`curl -s -X POST --data "{\"jsonrpc\":\"2.0\",\"method\":\"eth_blockNumber\",\"id\":1}" -H "Content-Type: application/json" $ETH_RPC_URL | jq .result`
 last="${last:1:${#last}-2}"
 

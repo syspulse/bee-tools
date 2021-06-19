@@ -15,10 +15,17 @@ export ETH_PASSWORD=${5:-$ETH_PASSWORD}
 export ETH_GAS=${5:-300000}
 
 >&2 echo "Address: $ETH_FROM"
->&2 echo "ETH_RPC_URL: $ETH_RPC_URL"
 >&2 echo "GAS_PRICE: $GAS_PRICE"
+>&2 echo "ETH_RPC_URL: $ETH_RPC_URL"
 >&2 echo "ETH_GAS: $ETH_GAS"
 >&2 echo "ETH_KEYSTORE: $ETH_KEYSTORE"
+
+curl -s -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}' -H "Content-Type: application/json" $ETH_RPC_URL
+c=$?
+if [ "$c" != "0" ]; then
+   >&2 echo "ERR: geth access failed: code=$c"
+   exit $c
+fi
 
 for tx in $TXS; do
    echo "replaying: $tx"
