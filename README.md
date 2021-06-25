@@ -7,3 +7,4 @@ Misc Snippets for Swarm Bee
 3. [tx-replay](tx-replay) - Various transaction tools (replay failed tx, gas costs)
 4. [eth-keystore](eth-keystore) - Ethereum standard keystore (create/read Private Key)
 5. [erc20](erc20) - Contract queries
+6. [clef](clef) - clef utils
