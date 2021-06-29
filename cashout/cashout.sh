@@ -106,12 +106,16 @@ function listAllUncashed() {
 }
 
 function listAllBalances() {  
+  total="0.0"
   for balance in $(getBalances)
-  do
-    
-    echo $balance | awk -F"," '{ printf("%s %.11f\n",$1,$2/1000000000000000.0)}'
+  do  
+    b=`echo $balance | awk -F"," '{ printf("%s %.11f\n",$1,$2/1000000000000000.0)}'`
+    echo $b
+    bzz_amount=`echo $b| awk '{print $2}'`
+    total=`echo "$total + $bzz_amount" | bc |xargs printf "%.11f"` 
     #echo $balance
   done
+  echo "Total: $total"
 }
 
 
