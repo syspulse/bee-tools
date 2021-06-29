@@ -13,3 +13,4 @@
 4. [eth-keystore](eth-keystore) - Ethereum standard keystore (create/read Private Key)
 5. [erc20](erc20) - Contract queries
 6. [clef](clef) - clef utils
+7. [cashout](cashout) - cashout utils
