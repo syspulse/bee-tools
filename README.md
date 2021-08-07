@@ -3,6 +3,8 @@
 
 <img src="doc/Bee-Architecture-clef.png" width="850">
 
+xDAI BZZ (Bridged): [0xdBF3Ea6F5beE45c02255B2c26a16F300502F68da](https://blockscout.com/xdai/mainnet/address/0xdBF3Ea6F5beE45c02255B2c26a16F300502F68da)
+
 ---
 
 ### Misc Snippets for Swarm Bee
